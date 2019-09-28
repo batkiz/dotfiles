@@ -1,5 +1,4 @@
 " 基础设置
-" =========================================================
 " 开启语法高亮
 syntax on
 
@@ -84,8 +83,9 @@ set smarttab
 " 将Tab自动转化成空格[需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 set expandtab
 
+
+
 " 按键设置
-" =========================================================
 let mapleader=','
 
 " 用于快速进入命令行
@@ -120,6 +120,7 @@ nnoremap <leader>w :w<CR>
 
 " save
 cmap w!! w !sudo tee >/dev/null %
+
 
 
 " 插件
@@ -173,3 +174,5 @@ function! InserTabWrapper()
         endif
 endfunction
 inoremap <TAB> <C-R>=InserTabWrapper()<CR>
+" 去除下面提示的匹配信息
+set shortmess+=c

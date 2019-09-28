@@ -6,9 +6,11 @@ including: neovim, powershell, zsh, git, etc.
 
 ## neovim
 
-location:  `~/.config/nvim/` 
+**installation guide**：
 
-需手动安装 [vim-plug](https://github.com/junegunn/vim-plug/)。
+1. 安装 neovim，安装 [vim-plug](https://github.com/junegunn/vim-plug/)
+2. 将 `init.vim` 置于 `~/.config/nvim/`
+3. 进入 nvim，执行 `:PlugInstall`
 
 thanks to [k-vim](https://github.com/wklken/k-vim), [vim-dictionary](https://github.com/jayli/vim-dictionary), [森林](https://www.liuhaolin.com/vim/341.html)。
 
@@ -29,4 +31,5 @@ location: `~\Documents\WindowsPowerShell\`
 ## vscode
 
 见此 [gist](https://gist.github.com/batkiz/0e17a875b6a22ec320f07e420ad3ee1a)
-注：未开放 public
+
+*注：暂为 private gist*
