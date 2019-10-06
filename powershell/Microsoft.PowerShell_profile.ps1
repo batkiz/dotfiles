@@ -12,5 +12,9 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 }
 
 function vim {
-   wsl vim
+   param($fileName)
+   if ($fileName.StartsWith(".\")) {
+      $fileName = $fileName.Substring(2)
+   }
+   wsl -e nvim $fileName
 }
