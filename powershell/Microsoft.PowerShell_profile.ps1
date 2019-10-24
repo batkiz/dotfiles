@@ -18,3 +18,6 @@ function vim {
    }
    wsl -e nvim $fileName
 }
+
+Set-Alias tr trash.exe
+Set-Alias e explorer.exe
