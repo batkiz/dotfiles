@@ -15,6 +15,11 @@ var ipv6_proxy = function () { return nowall_proxy(); };
 
 var rules = [
 	"||agnesb.fr",
+	"||c9.io",
+	"||bitwarden.com",
+	"||woocloud.online",
+	"||meipin.im",
+	"||gandi.net",
 	"||akiba-web.com",
 	"||altrec.com",
 	"||angela-merkel.de",

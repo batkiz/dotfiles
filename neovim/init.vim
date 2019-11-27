@@ -130,7 +130,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 
 " one-dark theme
-Plug 'joshdick/onedark.vim'
+" Plug 'joshdick/onedark.vim'
 
 " syntax
 Plug 'sheerun/vim-polyglot'
@@ -152,7 +152,7 @@ let g:lightline = {
       \ }
 
 " onedark
-colorscheme onedark
+colorscheme desert
 
 " polyglot
 " let g:polyglot_disabled = ['md']
