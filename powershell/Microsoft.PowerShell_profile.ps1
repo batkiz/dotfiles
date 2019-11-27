@@ -12,13 +12,9 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 }
 
 function vim {
-   param($fileName)
-   if ($fileName.StartsWith(".\")) {
-      $fileName = $fileName.Substring(2)
-   }
-   wsl -e nvim $fileName
+   param($fileName = '.')
+   wsl -e nvim $filename.Replace('\','/')
 }
 
 Set-Alias tr trash.exe
 Set-Alias e explorer.exe
-Set-Alias subl 'C:\Program Files\Sublime Text 3\subl.exe'
