@@ -1,7 +1,5 @@
 [user]
 	name = batkiz
 	email = batkiz@outlook.com
-[https]
-	proxy = http://127.0.0.1:43333
 [core]
 	autocrlf = false
