@@ -132,6 +132,9 @@ Plug 'itchyny/lightline.vim'
 " one-dark theme
 " Plug 'joshdick/onedark.vim'
 
+" papercolor theme
+Plug 'NLKNguyen/papercolor-theme'
+
 " syntax
 Plug 'sheerun/vim-polyglot'
 
@@ -151,11 +154,20 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 
-" onedark
-colorscheme desert
+" papercolor
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 1
+  \     }
+  \   }
+  \ }
 
-" polyglot
-" let g:polyglot_disabled = ['md']
+" onedark
+" colorscheme onedark
+
+" papercolor
+colorscheme PaperColor
 
 " rainbow
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
