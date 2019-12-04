@@ -13,7 +13,7 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 
 function vim {
    param($fileName = '.')
-   wsl -e nvim $filename.Replace('\','/')
+   wsl -e nvim $filename.Replace('\','/').Replace('C:','/mnt/c')
 }
 
 Set-Alias tr trash.exe
