@@ -118,6 +118,9 @@ nnoremap <leader>q :q<CR>
 " Quickly save the current file
 nnoremap <leader>w :w<CR>
 
+" format code
+nnoremap <leader>f gg=G
+
 " save
 cmap w!! w !sudo tee >/dev/null %
 
@@ -146,6 +149,9 @@ Plug 'jiangmiao/auto-pairs'
 
 " 自动补全字典
 Plug 'batkiz/vim-dictionary'
+
+" racket
+Plug 'wlangstroth/vim-racket'
 
 call plug#end()
 
