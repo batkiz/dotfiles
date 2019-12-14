@@ -16,5 +16,9 @@ function vim {
    wsl -e nvim $filename.Replace('\','/').Replace('C:','/mnt/c')
 }
 
+function ip {
+   wsl -e curl ip.gs
+}
+
 Set-Alias tr trash.exe
 Set-Alias e explorer.exe
