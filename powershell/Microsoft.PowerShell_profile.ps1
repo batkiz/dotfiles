@@ -24,6 +24,10 @@ function vim {
    wsl -e nvim $filename.Replace('\', '/').Replace('C:', '/mnt/c')
 }
 
+function wsldown {
+   wsl --shutdown
+}
+
 # cli trash
 Set-Alias tr trash.exe
 Set-Alias e explorer.exe
