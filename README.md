@@ -16,7 +16,7 @@ thanks to [k-vim](https://github.com/wklken/k-vim), [vim-dictionary](https://git
 
 ## powershell
 
-location: `~\Documents\WindowsPowerShell\`
+location: `$PROFILE`
 
 包含了自定义的主题 `ys`。
 
