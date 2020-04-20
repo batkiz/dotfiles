@@ -1,5 +1,31 @@
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [user]
 	name = batkiz
 	email = batkiz@outlook.com
+[difftool "sourcetree"]
+	cmd = '' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = "'' "
+	trustExitCode = true
+[merge]
+	tool = kdiff3
+[diff]
+	guitool = kdiff3
+[https]
+	proxy = http://127.0.0.1:43333
 [core]
-	autocrlf = false
+	autocrlf = true
+[pull]
+	rebase = false
+[fetch]
+	prune = false
+[rebase]
+	autoStash = false
+[credential]
+	helper = manager
+[credential "helperselector"]
+	selected = manager
