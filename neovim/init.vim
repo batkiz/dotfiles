@@ -132,9 +132,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " lightline
 Plug 'itchyny/lightline.vim'
 
-" one-dark theme
-" Plug 'joshdick/onedark.vim'
-
 " papercolor theme
 Plug 'NLKNguyen/papercolor-theme'
 
@@ -147,17 +144,11 @@ Plug 'luochen1990/rainbow'
 " auto pair
 Plug 'jiangmiao/auto-pairs'
 
-" 自动补全字典
-" Plug 'batkiz/vim-dictionary'
-
 " racket
 Plug 'wlangstroth/vim-racket'
 
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" tabnine
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 call plug#end()
 
@@ -172,12 +163,6 @@ function! s:check_back_space() abort "{{{
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
-" tab9
-call deoplete#custom#var('tabnine', {
-\ 'line_limit': 500,
-\ 'max_num_results': 10,
-\ })
-
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -191,9 +176,6 @@ let g:PaperColor_Theme_Options = {
   \     }
   \   }
   \ }
-
-" onedark
-" colorscheme onedark
 
 " papercolor
 colorscheme PaperColor
