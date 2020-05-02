@@ -5,6 +5,7 @@ Import-Module oh-my-posh
 Set-Theme ys
 
 # use scoop-completion in github.com/batkiz/backit bucket
+$scoopdir = $(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName
 Import-Module "$scoopdir\modules\scoop-completion"
 
 # fish-like cli completion
