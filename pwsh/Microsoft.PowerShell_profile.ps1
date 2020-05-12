@@ -5,8 +5,7 @@ Import-Module oh-my-posh
 Set-Theme ys
 
 # use scoop-completion in github.com/batkiz/backit bucket
-$scoopdir = $(Get-Item $(Get-Command scoop).Path).Directory.Parent.FullName
-Import-Module "$scoopdir\modules\scoop-completion"
+Import-Module scoop-completion
 
 # fish-like cli completion
 # https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta1
@@ -27,9 +26,37 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
 }
 
 # use nvim in wsl
+function dos2nix {
+    param($dosPath)
+
+    $path = $dosPath.Replace('\', '/')
+
+    if ($path -match '[a-zA-Z]:.*') {
+        $drive = $path.split(':')[0].ToLower()
+        $filePath = $path.split(':')[1]
+
+        $nixPath = '/mnt/' + $drive + $filePath
+    }
+    else {
+        $nixPath = $path
+    }
+
+    $nixPath
+}
+
 function vim {
-    param($fileName = '.')
-    wsl -e nvim $filename.Replace('\', '/').Replace('C:', '/mnt/c')
+    param (
+        $Path = '.'
+    )
+
+    if ($Path -eq '.') {
+        $Path = '.'
+    }
+    else {
+        $Path = dos2nix -dosPath $Path
+    }
+
+    wsl -e nvim $Path
 }
 
 function wsldown {
