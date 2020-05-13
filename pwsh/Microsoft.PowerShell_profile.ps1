@@ -4,8 +4,9 @@ Import-Module oh-my-posh
 # this theme is in ./PoshThemes
 Set-Theme ys
 
-# use scoop-completion in github.com/batkiz/backit bucket
 Import-Module scoop-completion
+
+Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 
 # fish-like cli completion
 # https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta1
@@ -37,6 +38,7 @@ function dos2nix {
 
         $nixPath = '/mnt/' + $drive + $filePath
     }
+
     else {
         $nixPath = $path
     }
@@ -74,6 +76,36 @@ function which {
     return $results;
 }
 
+function ListDirectory {
+    Get-ChildItem $args | Format-Wide Name -AutoSize
+}
+
+function nali {
+    param (
+        $Query = '',
+        [Alias('l')]
+        $Lang = 'zh'
+    )
+
+    if ($Lang.ToLower() -eq 'en' ) {
+        $Lang = 'en'
+    }
+    else {
+        $Lang = 'zh-CN'
+    }
+
+    $ApiUrl = "http://ip-api.com/json/{0}?lang={1}" -f $Query, $Lang
+
+    $info = (Invoke-WebRequest $ApiUrl).Content | ConvertFrom-Json
+
+    $printInfo = "{0}`t[{1} @ {2}, {3}]" -f $info.query, $info.isp, $info.city, $info.country
+
+    $printInfo
+}
+
 # cli trash
 Set-Alias tr trash.exe
 Set-Alias e explorer.exe
+Set-Alias -Name ls -Value ListDirectory
+Set-Alias -Name ll -Value Get-ChildItem
+Set-Alias -Name l -Value Get-ChildItem
