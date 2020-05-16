@@ -58,7 +58,7 @@ function vim {
         $Path = dos2nix -dosPath $Path
     }
 
-    wsl -e nvim $Path
+    wsl -d debian -e nvim $Path
 }
 
 function wsldown {
@@ -101,6 +101,25 @@ function nali {
     $printInfo = "{0}`t[{1} @ {2}, {3}]" -f $info.query, $info.isp, $info.city, $info.country
 
     $printInfo
+}
+
+# thanks to https://yugasun.com/post/serverless-practice-dict.html
+function fy {
+    param (
+        $Query = ''
+    )
+
+    if ($Query -eq '' ) {
+        Write-Output 'this is a cli translator, try `fy hello`.'
+    }
+    else {
+        $ApiUrl = "http://service-7kqwzu92-1251556596.gz.apigw.tencentcs.com/test/dictt?q={0}" -f $Query
+
+        $info = (Invoke-WebRequest $ApiUrl).Content | ConvertFrom-Json
+        $printInfo = "{0}" -f $info.body.data
+
+        Write-Host $printInfo
+    }
 }
 
 # cli trash
