@@ -116,10 +116,14 @@ function fy {
         $ApiUrl = "http://service-7kqwzu92-1251556596.gz.apigw.tencentcs.com/test/dictt?q={0}" -f $Query
 
         $info = (Invoke-WebRequest $ApiUrl).Content | ConvertFrom-Json
-        $printInfo = "{0}" -f $info.body.data
 
-        Write-Host $printInfo
+        Write-Host $info.body.data
     }
+}
+
+function Get-Size {
+    param([string]$pth)
+    "{0:n2}" -f ((Get-ChildItem -path $pth -recurse | measure-object -property length -sum).sum / 1mb) + " M"
 }
 
 # cli trash
