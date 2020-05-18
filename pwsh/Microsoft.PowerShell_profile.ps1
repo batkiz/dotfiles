@@ -105,15 +105,11 @@ function nali {
 
 # thanks to https://yugasun.com/post/serverless-practice-dict.html
 function fy {
-    param (
-        $Query = ''
-    )
-
-    if ($Query -eq '' ) {
+    if ($args.Length -eq 0 ) {
         Write-Output 'this is a cli translator, try `fy hello`.'
     }
     else {
-        $ApiUrl = "http://service-7kqwzu92-1251556596.gz.apigw.tencentcs.com/test/dictt?q={0}" -f $Query
+        $ApiUrl = "http://service-7kqwzu92-1251556596.gz.apigw.tencentcs.com/test/dictt?q={0}" -f $args
 
         $info = (Invoke-WebRequest $ApiUrl).Content | ConvertFrom-Json
 
@@ -124,6 +120,16 @@ function fy {
 function Get-Size {
     param([string]$pth)
     "{0:n2}" -f ((Get-ChildItem -path $pth -recurse | measure-object -property length -sum).sum / 1mb) + " M"
+}
+
+function time {
+    $Command = "$args"
+
+    $time = Measure-Command { Invoke-Expression $Command 2>&1 | Out-Default }
+
+    $info = "{0:d2}:{1:d2}:{2:d2}.{3}" -f $time.Hours, $time.Minutes, $time.Seconds, $time.Milliseconds
+
+    Write-Output $info
 }
 
 # cli trash
