@@ -109,7 +109,9 @@ function fy {
         Write-Output 'this is a cli translator, try `fy hello`.'
     }
     else {
-        $ApiUrl = "http://service-7kqwzu92-1251556596.gz.apigw.tencentcs.com/test/dictt?q={0}" -f $args
+        $str = [string]::Join(" ", $args)
+
+        $ApiUrl = "http://service-7kqwzu92-1251556596.gz.apigw.tencentcs.com/test/dictt?q={0}" -f $str
 
         $info = (Invoke-WebRequest $ApiUrl).Content | ConvertFrom-Json
 
