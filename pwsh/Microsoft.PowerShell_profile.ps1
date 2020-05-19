@@ -125,7 +125,7 @@ function Get-Size {
 function time {
     $Command = "$args"
 
-    $time = Measure-Command { Invoke-Expression $Command 2>&1 | Out-Default }
+    $time = Measure-Command { Invoke-Expression $Command 2>&1 | out-default }
 
     $info = "{0:d2}:{1:d2}:{2:d2}.{3}" -f $time.Hours, $time.Minutes, $time.Seconds, $time.Milliseconds
 

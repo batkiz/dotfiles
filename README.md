@@ -6,8 +6,6 @@ including: neovim, powershell, zsh, git, etc.
 
 ## nvim
 
-**installation guide**：
-
 1. 安装 neovim，安装 [vim-plug](https://github.com/junegunn/vim-plug/)
 2. 将 `init.vim` 置于 `~/.config/nvim/`
 3. 进入 nvim，执行 `:PlugInstall`
@@ -16,7 +14,7 @@ thanks to [k-vim](https://github.com/wklken/k-vim), [森林](https://www.liuhaol
 
 ## pwsh
 
-location: `$PROFILE`
+将该文件夹下的文件放在 `$PROFILE` 所在文件夹里。相关的依赖与更改请看代码的注释。
 
 包含了自定义的主题 `ys`。
 
@@ -39,3 +37,7 @@ windows terminal
 ## scripts
 
 随意写的一些小脚本。
+
+- `GBK2UNICODE.csx`，用于将某文件夹下的所有文件从GBK编码转换到UNICODE（UTF-8）。
+- `gifsplit.py`，用于分离gif图片的所有帧。
+- `loopback.ps1`，用于开启windows的local loopback。
