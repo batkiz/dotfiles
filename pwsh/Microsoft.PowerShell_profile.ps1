@@ -4,6 +4,18 @@ Import-Module oh-my-posh
 # this theme is in ./PoshThemes
 Set-Theme ys
 
+# colored ls
+Import-Module Get-ChildItemColor
+
+$GetChildItemColorTable.File['Directory'] = "DarkCyan"
+ForEach ($Exe in $GetChildItemColorExtensions.ExecutableList) {
+    $GetChildItemColorTable.File[$Exe] = "Green"
+}
+
+Set-Alias l Get-ChildItem -option AllScope
+Set-Alias ll Get-ChildItem -option AllScope
+Set-Alias ls Get-ChildItemColorFormatWide -option AllScope
+
 Import-Module scoop-completion
 
 Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
@@ -65,6 +77,12 @@ function wsldown {
     wsl --shutdown
 }
 
+function repath {
+    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") +
+                ";" +
+                [System.Environment]::GetEnvironmentVariable("Path", "User")
+}
+
 function which {
     $results = New-Object System.Collections.Generic.List[System.Object];
     foreach ($command in $args) {
@@ -74,10 +92,6 @@ function which {
         }
     }
     return $results;
-}
-
-function ListDirectory {
-    Get-ChildItem $args | Format-Wide Name -AutoSize
 }
 
 function nali {
@@ -137,6 +151,3 @@ function time {
 # cli trash
 Set-Alias tr trash.exe
 Set-Alias e explorer.exe
-Set-Alias -Name ls -Value ListDirectory
-Set-Alias -Name ll -Value Get-ChildItem
-Set-Alias -Name l -Value Get-ChildItem
