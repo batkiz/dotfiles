@@ -1,26 +1,21 @@
+# for installing the 2 modules below, please check
+# https://github.com/dahlbyk/posh-git
+# https://github.com/JanDeDobbeleer/oh-my-posh
 Import-Module posh-git
 Import-Module oh-my-posh
 
 # this theme is in ./PoshThemes
 Set-Theme ys
 
-# colored ls
-Import-Module Get-ChildItemColor
-
-$GetChildItemColorTable.File['Directory'] = "DarkCyan"
-ForEach ($Exe in $GetChildItemColorExtensions.ExecutableList) {
-    $GetChildItemColorTable.File[$Exe] = "Green"
-}
-
-Set-Alias l Get-ChildItem -option AllScope
-Set-Alias ll Get-ChildItem -option AllScope
-Set-Alias ls Get-ChildItemColorFormatWide -option AllScope
-
+# https://github.com/Moeologist/scoop-completion
+# if you dont need this, please comment it
 Import-Module scoop-completion
 
+# zsh like (?) cli completion
 Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 
 # fish-like cli completion
+# need a beta PSReadLine, check
 # https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta1
 Set-PSReadLineOption -Colors @{ Prediction = 'DarkGray' }
 Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function ForwardWord
@@ -30,7 +25,8 @@ Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd 
 
-# PowerShell parameter completion shim for the dotnet CLI 
+# PowerShell parameter completion shim for the dotnet CLI
+# comment it if dont need it
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
     dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
@@ -77,12 +73,7 @@ function wsldown {
     wsl --shutdown
 }
 
-function repath {
-    $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") +
-                ";" +
-                [System.Environment]::GetEnvironmentVariable("Path", "User")
-}
-
+# *nix like which, to get the path of a command
 function which {
     $results = New-Object System.Collections.Generic.List[System.Object];
     foreach ($command in $args) {
@@ -94,6 +85,16 @@ function which {
     return $results;
 }
 
+# bash like ls, sadly no colors now
+function ListDirectory {
+    Get-ChildItem $args | Format-Wide Name -AutoSize
+}
+
+Set-Alias -Name ls -Value ListDirectory
+Set-Alias -Name ll -Value Get-ChildItem
+Set-Alias -Name l -Value Get-ChildItem
+
+# to get the location info of a domain / an IP
 function nali {
     param (
         $Query = '',
@@ -117,15 +118,14 @@ function nali {
     $printInfo
 }
 
+# cli translator
 # thanks to https://yugasun.com/post/serverless-practice-dict.html
 function fy {
     if ($args.Length -eq 0 ) {
-        Write-Output 'this is a cli translator, try `fy hello`.'
+        Write-Output 'this is a cli translator, try `fy hello world`.'
     }
     else {
-        $str = [string]::Join(" ", $args)
-
-        $ApiUrl = "http://service-7kqwzu92-1251556596.gz.apigw.tencentcs.com/test/dictt?q={0}" -f $str
+        $ApiUrl = "http://service-7kqwzu92-1251556596.gz.apigw.tencentcs.com/test/dictt?q={0}" -f $args
 
         $info = (Invoke-WebRequest $ApiUrl).Content | ConvertFrom-Json
 
@@ -133,11 +133,13 @@ function fy {
     }
 }
 
+# get the size of a dir / a file, in human-readable format
 function Get-Size {
     param([string]$pth)
     "{0:n2}" -f ((Get-ChildItem -path $pth -recurse | measure-object -property length -sum).sum / 1mb) + " M"
 }
 
+# *nix like time
 function time {
     $Command = "$args"
 
@@ -150,4 +152,5 @@ function time {
 
 # cli trash
 Set-Alias tr trash.exe
+# i often forget how to spell explorer.exe 
 Set-Alias e explorer.exe
