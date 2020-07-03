@@ -119,17 +119,36 @@ function nali {
 }
 
 # cli translator
-# thanks to https://yugasun.com/post/serverless-practice-dict.html
+# thanks to https://github.com/wo52616111/capslock-plus/ for API
 function fy {
     if ($args.Length -eq 0 ) {
         Write-Output 'this is a cli translator, try `fy hello world`.'
     }
     else {
-        $ApiUrl = "http://service-7kqwzu92-1251556596.gz.apigw.tencentcs.com/test/dictt?q={0}" -f $args
+        $query = ""
+        for ($i = 0; $i -lt $args.Count; $i++) {
+            $query += " "
+            $query += $args[$i]
+        }
+
+        $ApiUrl = "http://fanyi.youdao.com/openapi.do?keyfrom=CapsLock&key=12763084&type=data&doctype=json&version=1.1&q={0}" -f $query
 
         $info = (Invoke-WebRequest $ApiUrl).Content | ConvertFrom-Json
 
-        Write-Host $info.body.data
+        Write-Host "@" $query  "[" $info.basic.phonetic "]"
+        Write-Host "翻译：`t" $info.translation
+        Write-Host "词典："
+        for ($i = 0; $i -lt $info.basic.explains.Count; $i++) {
+            Write-Host "`t" $info.basic.explains[$i]
+        }
+        Write-Host "网络："
+        for ($i = 0; $i -lt $info.web.Count; $i++) {
+            Write-Host "`t" $info.web[$i].key ": " -NoNewline
+            for ($j = 0; $j -lt $info.web[$i].value.Count; $j++) {
+                Write-Host $info.web[$i].value[$j] "; " -NoNewline
+            }
+            Write-Host ""
+        }
     }
 }
 
