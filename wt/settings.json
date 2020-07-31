@@ -8,7 +8,7 @@
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "defaultProfile": "{3b7b39ea-1d00-43b3-ad83-88ed13e4e81d}",
     "initialCols": 90,
-    "initialRows": 24,
+    "initialRows": 25,
     "tabWidthMode": "titleLength",
     "theme": "light",
     // You can add more global application settings here.
@@ -24,7 +24,7 @@
     "profiles": {
         "defaults": {
             // Put settings here that you want to apply to all profiles.
-            "fontFace": "Iosevka",
+            "fontFace": "Sarasa Mono SC",
             "useAcrylic": true,
             "acrylicOpacity": 0.85,
             "background": "#282C34",
@@ -41,8 +41,9 @@
                 "commandline": "C:\\soft\\Scoop\\apps\\pwsh\\current\\pwsh.exe",
                 "startingDirectory": "$HOME",
                 "hidden": false,
-                "acrylicOpacity": 0.75
+                "acrylicOpacity": 0.75,
                 // "experimental.retroTerminalEffect": true,
+                "suppressApplicationTitle": true
             },
             {
                 // Make changes here to the powershell.exe profile
@@ -163,13 +164,13 @@
         {
             "command": "copy",
             "keys": [
-                "ctrl+insert"
+                "alt+c"
             ]
         },
         {
             "command": "paste",
             "keys": [
-                "shift+insert"
+                "alt+v"
             ]
         },
         {

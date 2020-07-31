@@ -1,3 +1,4 @@
+
 # for installing the 2 modules below, please check
 # https://github.com/dahlbyk/posh-git
 # https://github.com/JanDeDobbeleer/oh-my-posh
@@ -17,6 +18,8 @@ Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 # fish-like cli completion
 # need a beta PSReadLine, check
 # https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta1
+# https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta2
+Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -Colors @{ Prediction = 'DarkGray' }
 Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function ForwardWord
 
