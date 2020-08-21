@@ -1,4 +1,3 @@
-
 # for installing the 2 modules below, please check
 # https://github.com/dahlbyk/posh-git
 # https://github.com/JanDeDobbeleer/oh-my-posh
@@ -35,6 +34,17 @@ Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
         [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
     }
+}
+
+# winget tab completion
+Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
+    param($wordToComplete, $commandAst, $cursorPosition)
+        [Console]::InputEncoding = [Console]::OutputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
+        $Local:word = $wordToComplete.Replace('"', '""')
+        $Local:ast = $commandAst.ToString().Replace('"', '""')
+        winget complete --word="$Local:word" --commandline "$Local:ast" --position $cursorPosition | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
 }
 
 # use nvim in wsl
@@ -75,6 +85,7 @@ function vim {
 function wsldown {
     wsl --shutdown
 }
+
 
 # *nix like which, to get the path of a command
 function which {
@@ -170,6 +181,27 @@ function time {
     $info = "{0:d2}:{1:d2}:{2:d2}.{3}" -f $time.Hours, $time.Minutes, $time.Seconds, $time.Milliseconds
 
     Write-Output $info
+}
+
+# cli proxy!
+function socks {
+    $Command = "$args"
+
+    Set-CliProxy
+    Invoke-Expression $Command 2>&1 | out-default
+    Clear-CliProxy
+}
+
+function Set-CliProxy {
+    $proxy = 'http://127.0.0.1:43333'
+
+    $env:HTTP_PROXY = $proxy
+    $env:HTTPS_PROXY = $proxy
+}
+
+function Clear-CliProxy {
+    Remove-Item env:HTTP_PROXY
+    Remove-Item env:HTTPS_PROXY
 }
 
 # cli trash
