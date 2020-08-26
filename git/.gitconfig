@@ -16,6 +16,7 @@
     proxy = http://127.0.0.1:43333
 [core]
     autocrlf = true
+    askpass =
 [pull]
     rebase = false
 [fetch]
@@ -30,7 +31,7 @@
 [credential]
     helper = manager
 [credential "helperselector"]
-    selected = manager
+    selected = w
 [alias]
     aliases = config --get-regexp alias
     last = log -1 HEAD

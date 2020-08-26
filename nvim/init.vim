@@ -150,32 +150,39 @@ Plug 'wlangstroth/vim-racket'
 " deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+
+if has('win32') || has('win64')
+    Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1'  }
+else
+    Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh'  }
+endif
+
 call plug#end()
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" :
-\ <SID>check_back_space() ? "\<TAB>" :
-\ deoplete#manual_complete()
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ deoplete#manual_complete()
 function! s:check_back_space() abort "{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+            \ 'colorscheme': 'wombat',
+            \ }
 
 " papercolor
 let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'transparent_background': 1
-  \     }
-  \   }
-  \ }
+            \   'theme': {
+            \     'default': {
+            \       'transparent_background': 1
+            \     }
+            \   }
+            \ }
 
 " papercolor
 colorscheme PaperColor

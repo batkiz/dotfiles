@@ -24,7 +24,7 @@
     "profiles": {
         "defaults": {
             // Put settings here that you want to apply to all profiles.
-            "fontFace": "Sarasa Mono SC",
+            "fontFace": "Iosevka",
             "useAcrylic": true,
             "acrylicOpacity": 0.85,
             "background": "#282C34",
@@ -75,9 +75,16 @@
                 "hidden": false,
                 "name": "Arch",
                 "icon": "C:\\soft\\arch\\arch.png",
-                "source": "Windows.Terminal.Wsl",
-                "commandline": "Arch",
+                // "source": "Windows.Terminal.Wsl",
+                // "commandline": "Arch",
+                "commandline": "C:\\soft\\arch\\arch.exe",
                 "startingDirectory": "$HOME"
+            },
+            {
+                "guid": "{ec788635-3240-40a8-9a78-fd0419409fa7}",
+                "name": "GCP",
+                "commandline": "ssh gcp.batkiz.com",
+                "icon": "C:\\soft\\arch\\gcp.png"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -190,6 +197,10 @@
             "keys": [
                 "ctrl+t"
             ]
+        },
+        {
+            "command": "commandPalette",
+            "keys": "f1"
         },
         // Press Alt+Shift+D to open a new pane.
         // - "split": "auto" makes this pane open in the direction that provides the most surface area.
