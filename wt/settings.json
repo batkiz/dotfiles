@@ -11,6 +11,7 @@
     "initialRows": 25,
     "tabWidthMode": "titleLength",
     "theme": "light",
+    "useTabSwitcher": true,
     // You can add more global application settings here.
     // To learn more about global settings, visit https://aka.ms/terminal-global-settings
     // If enabled, selections are automatically copied to your clipboard.

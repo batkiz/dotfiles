@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<opml version="1.0">
+  <head>
+    <title>Pocket Casts Feeds</title>
+  </head>
+  <body>
+    <outline text="feeds">
+      <outline type="rss" text="得意忘形播客" xmlUrl="http://rss.lizhi.fm/rss/1959617.xml" />
+      <outline type="rss" text=".NET Rocks!" xmlUrl="http://feeds.feedburner.com/netRocksFullMp3Downloads" />
+      <outline type="rss" text="字谈字畅" xmlUrl="https://www.thetype.com/typechat/feed/" />
+      <outline type="rss" text="随机波动StochasticVolatility" xmlUrl="https://feeds.fireside.fm/stovol/rss" />
+      <outline type="rss" text="机核网 GADIO 游戏广播" xmlUrl="http://feed.tangsuanradio.com/gadio.xml" />
+      <outline type="rss" text="Anyway.FM 设计杂谈" xmlUrl="https://Anyway.FM/rss.xml" />
+      <outline type="rss" text="杯弓舌瘾" xmlUrl="https://justpodmedia.com/rss/tipsy-proof.xml" />
+      <outline type="rss" text="剩余价值SurplusValue" xmlUrl="https://www.surplusvalue.club/rss" />
+      <outline type="rss" text="去现场" xmlUrl="https://justpodmedia.com/rss/go-live.xml" />
+      <outline type="rss" text="津津乐道" xmlUrl="https://feeds.jjldbk.com/all.xml" />
+      <outline type="rss" text="大内密谈" xmlUrl="http://rss.lizhi.fm/rss/14275.xml" />
+      <outline type="rss" text="博物志" xmlUrl="https://bowuzhi.fm/episodes/feed.xml" />
+      <outline type="rss" text="This American Life" xmlUrl="http://feed.thisamericanlife.org/talpodcast" />
+      <outline type="rss" text="Yet Another 又是一个" xmlUrl="https://yetanother.fm/podcast.xml" />
+      <outline type="rss" text="主唱死了" xmlUrl="https://zhuchangsile.xyz/episodes/feed.xml" />
+      <outline type="rss" text="东亚观察局" xmlUrl="http://justpodmedia.com/rss/eye-on-east-asia.xml" />
+      <outline type="rss" text="忽左忽右" xmlUrl="https://justpodmedia.com/rss/left-right.xml" />
+      <outline type="rss" text="黑水公园" xmlUrl="http://www.ximalaya.com/album/3558668.xml" />
+      <outline type="rss" text="声东击西" xmlUrl="https://feeds.fireside.fm/shengdongjixi/rss" />
+      <outline type="rss" text="捕蛇者说" xmlUrl="https://pythonhunter.org/episodes/feed.xml" />
+      <outline type="rss" text="Vibration 歪波音室" xmlUrl="https://s2.proxy.wavpub.com/vibration.xml" />
+      <outline type="rss" text="迟早更新" xmlUrl="http://rss.lizhi.fm/rss/1728291.xml" />
+      <outline type="rss" text="The Changelog: Software Dev &amp; Open Source" xmlUrl="https://changelog.com/podcast/feed" />
+      <outline type="rss" text="加州101" xmlUrl="http://rss.lizhi.fm/rss/894383.xml" />
+    </outline>
+  </body>
+</opml>
