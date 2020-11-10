@@ -47,11 +47,11 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     }
 }
 
-
 # several cli completions
 (& deno completions powershell) | Out-String | Invoke-Expression
 (& rustup completions powershell) | Out-String | Invoke-Expression
 (& gh completion -s powershell) | Out-String | Invoke-Expression
+(& pdm completion powershell) | Out-String | Invoke-Expression
 
 # use nvim in wsl
 function dos2nix {

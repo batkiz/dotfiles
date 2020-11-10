@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <opml version="1.0">
   <head>
     <title>Pocket Casts Feeds</title>
@@ -6,6 +6,7 @@
   <body>
     <outline text="feeds">
       <outline type="rss" text="得意忘形播客" xmlUrl="http://rss.lizhi.fm/rss/1959617.xml" />
+      <outline type="rss" text="Changelog Master Feed" xmlUrl="https://changelog.com/master/feed" />
       <outline type="rss" text=".NET Rocks!" xmlUrl="http://feeds.feedburner.com/netRocksFullMp3Downloads" />
       <outline type="rss" text="字谈字畅" xmlUrl="https://www.thetype.com/typechat/feed/" />
       <outline type="rss" text="随机波动StochasticVolatility" xmlUrl="https://feeds.fireside.fm/stovol/rss" />
@@ -27,7 +28,6 @@
       <outline type="rss" text="捕蛇者说" xmlUrl="https://pythonhunter.org/episodes/feed.xml" />
       <outline type="rss" text="Vibration 歪波音室" xmlUrl="https://s2.proxy.wavpub.com/vibration.xml" />
       <outline type="rss" text="迟早更新" xmlUrl="http://rss.lizhi.fm/rss/1728291.xml" />
-      <outline type="rss" text="The Changelog: Software Dev &amp; Open Source" xmlUrl="https://changelog.com/podcast/feed" />
       <outline type="rss" text="加州101" xmlUrl="http://rss.lizhi.fm/rss/894383.xml" />
     </outline>
   </body>
