@@ -2,82 +2,86 @@
 <opml version="1.1">
   <head>
     <title>The Old Reader</title>
-    <dateCreated>Tue, 10 Nov 2020 02:39:13 GMT</dateCreated>
-    <dateModified>Tue, 10 Nov 2020 02:39:13 GMT</dateModified>
+    <dateCreated>Mon, 14 Dec 2020 08:53:59 GMT</dateCreated>
+    <dateModified>Mon, 14 Dec 2020 08:53:59 GMT</dateModified>
     <ownerName>batkiz</ownerName>
     <ownerEmail>batkiz@outlook.com</ownerEmail>
   </head>
   <body>
     <outline title="Blogs" text="Blogs">
-      <outline type="rss" xmlUrl="https://sharzy.in/feed.xml" />
-      <outline type="rss" xmlUrl="http://www.sqlsec.com/atom.xml" />
-      <outline type="rss" xmlUrl="http://feed.cnblogs.com/blog/u/42514/rss" />
-      <outline type="rss" xmlUrl="https://zyxin.xyz/blog/atom.xml" />
-      <outline type="rss" xmlUrl="https://geelaw.blog/rss.xml" />
-      <outline type="rss" xmlUrl="https://harttle.land/feed.xml" />
-      <outline type="rss" xmlUrl="https://yihui.org/cn/index.xml" />
-      <outline type="rss" xmlUrl="https://ruinsyi.github.io/atom.xml" />
-      <outline type="rss" xmlUrl="https://www.h404bi.com/feed/atom.xml" />
-      <outline type="rss" xmlUrl="http://feeds.feedburner.com/gythialy" />
-      <outline type="rss" xmlUrl="https://poplite.xyz/feed.xml" />
-      <outline type="rss" xmlUrl="http://bookzhou.com/feed/" />
-      <outline type="rss" xmlUrl="https://feng.si/feed.xml" />
-      <outline type="rss" xmlUrl="https://note.qidong.name/index.xml" />
-      <outline type="rss" xmlUrl="http://linw1995.com/index.xml" />
-      <outline type="rss" xmlUrl="https://mogeko.me/index.xml" />
-      <outline type="rss" xmlUrl="http://feed.cnblogs.com/blog/u/292394/rss" />
-      <outline type="rss" xmlUrl="https://ieevee.com/feed.xml" />
-      <outline type="rss" xmlUrl="https://blog.batkiz.com/atom.xml" />
-      <outline type="rss" xmlUrl="https://jdao.online/posts/index.xml" />
-      <outline type="rss" xmlUrl="https://laujay.com/index.xml" />
-      <outline type="rss" xmlUrl="https://laike9m.com/blog/rss/" />
-      <outline type="rss" xmlUrl="http://www.kilerd.me/rss.xml" />
-      <outline type="rss" xmlUrl="http://doowzs.com/blog/index.xml" />
-      <outline type="rss" xmlUrl="http://rsshub.app/blogs/wangyin" />
-      <outline type="rss" xmlUrl="https://blog.yinfupai.com/feed" />
-      <outline type="rss" xmlUrl="http://iovxw.net/rss.xml" />
-      <outline type="rss" xmlUrl="https://blog.1a23.com/feed/" />
-      <outline type="rss" xmlUrl="https://draveness.me/feed.xml" />
+      <outline type="rss" xmlUrl="https://sharzy.in/feed.xml"/>
+      <outline type="rss" xmlUrl="http://www.sqlsec.com/atom.xml"/>
+      <outline type="rss" xmlUrl="http://feed.cnblogs.com/blog/u/42514/rss"/>
+      <outline type="rss" xmlUrl="https://zyxin.xyz/blog/atom.xml"/>
+      <outline type="rss" xmlUrl="https://geelaw.blog/rss.xml"/>
+      <outline type="rss" xmlUrl="https://harttle.land/feed.xml"/>
+      <outline type="rss" xmlUrl="https://yihui.org/cn/index.xml"/>
+      <outline type="rss" xmlUrl="https://ruinsyi.github.io/atom.xml"/>
+      <outline type="rss" xmlUrl="https://www.h404bi.com/feed/atom.xml"/>
+      <outline type="rss" xmlUrl="http://feeds.feedburner.com/gythialy"/>
+      <outline type="rss" xmlUrl="https://poplite.xyz/feed.xml"/>
+      <outline type="rss" xmlUrl="http://bookzhou.com/feed/"/>
+      <outline type="rss" xmlUrl="https://feng.si/feed.xml"/>
+      <outline type="rss" xmlUrl="https://note.qidong.name/index.xml"/>
+      <outline type="rss" xmlUrl="http://linw1995.com/index.xml"/>
+      <outline type="rss" xmlUrl="https://mogeko.me/index.xml"/>
+      <outline type="rss" xmlUrl="http://feed.cnblogs.com/blog/u/292394/rss"/>
+      <outline type="rss" xmlUrl="https://ieevee.com/feed.xml"/>
+      <outline type="rss" xmlUrl="https://blog.batkiz.com/atom.xml"/>
+      <outline type="rss" xmlUrl="https://jdao.online/posts/index.xml"/>
+      <outline type="rss" xmlUrl="https://laujay.com/index.xml"/>
+      <outline type="rss" xmlUrl="https://laike9m.com/blog/rss/"/>
+      <outline type="rss" xmlUrl="http://www.kilerd.me/rss.xml"/>
+      <outline type="rss" xmlUrl="http://doowzs.com/blog/index.xml"/>
+      <outline type="rss" xmlUrl="http://rsshub.app/blogs/wangyin"/>
+      <outline type="rss" xmlUrl="https://blog.yinfupai.com/feed"/>
+      <outline type="rss" xmlUrl="http://iovxw.net/rss.xml"/>
+      <outline type="rss" xmlUrl="https://blog.1a23.com/feed/"/>
+      <outline type="rss" xmlUrl="https://draveness.me/feed.xml"/>
+      <outline type="rss" xmlUrl="https://frostming.com/feed.xml"/>
     </outline>
     <outline title="Sites" text="Sites">
-      <outline type="rss" xmlUrl="https://sspai.com/feed" />
-      <outline type="rss" xmlUrl="https://51.ruyo.net/feed/" />
-      <outline type="rss" xmlUrl="http://jandan.net/feed" />
-      <outline type="rss" xmlUrl="https://livesino.net/feed" />
-      <outline type="rss" xmlUrl="http://ifanr.com/feed" />
-      <outline type="rss" xmlUrl="https://www.sysgeek.cn/feed/" />
-      <outline type="rss" xmlUrl="https://www.landiannews.com/feed" />
-      <outline type="rss" xmlUrl="https://www.gcores.com/rss" />
-      <outline type="rss" xmlUrl="https://hellogithub.com/rss" />
-      <outline type="rss" xmlUrl="http://meipin.im/feed" />
-      <outline type="rss" xmlUrl="https://www.marxists.org/chinese/feed.xml" />
-      <outline type="rss" xmlUrl="https://xz.aliyun.com/feed" />
-      <outline type="rss" xmlUrl="http://feeds.feedburner.com/bookfere" />
-      <outline type="rss" xmlUrl="http://rsshub.app/lofter/user/beilungg" />
-      <outline type="rss" xmlUrl="https://rsshub.batkiz.com/zhihu/zhuanlan/c_1085975047386050560" />
+      <outline type="rss" xmlUrl="https://sspai.com/feed"/>
+      <outline type="rss" xmlUrl="https://51.ruyo.net/feed/"/>
+      <outline type="rss" xmlUrl="http://jandan.net/feed"/>
+      <outline type="rss" xmlUrl="https://livesino.net/feed"/>
+      <outline type="rss" xmlUrl="http://ifanr.com/feed"/>
+      <outline type="rss" xmlUrl="https://www.sysgeek.cn/feed/"/>
+      <outline type="rss" xmlUrl="https://www.landiannews.com/feed"/>
+      <outline type="rss" xmlUrl="https://www.gcores.com/rss"/>
+      <outline type="rss" xmlUrl="https://hellogithub.com/rss"/>
+      <outline type="rss" xmlUrl="http://meipin.im/feed"/>
+      <outline type="rss" xmlUrl="https://www.marxists.org/chinese/feed.xml"/>
+      <outline type="rss" xmlUrl="https://xz.aliyun.com/feed"/>
+      <outline type="rss" xmlUrl="http://feeds.feedburner.com/bookfere"/>
+      <outline type="rss" xmlUrl="http://rsshub.app/lofter/user/beilungg"/>
+      <outline type="rss" xmlUrl="https://rsshub.batkiz.com/zhihu/zhuanlan/c_1085975047386050560"/>
+      <outline type="rss" xmlUrl="http://freemdict.com/feed/"/>
     </outline>
     <outline title="en" text="en">
-      <outline type="rss" xmlUrl="https://www.tutorialr.com/rss.xml" />
-      <outline type="rss" xmlUrl="https://comentsys.wordpress.com/feed/" />
-      <outline type="rss" xmlUrl="https://devblogs.microsoft.com/oldnewthing/feed" />
-      <outline type="rss" xmlUrl="https://yinwang0.wordpress.com/feed/" />
-      <outline type="rss" xmlUrl="https://github.blog/feed/" />
-      <outline type="rss" xmlUrl="https://devblogs.microsoft.com/dotnet/feed/" />
-      <outline type="rss" xmlUrl="https://twobithistory.org/feed.xml" />
-      <outline type="rss" xmlUrl="https://www.smbc-comics.com/comic/rss" />
-      <outline type="rss" xmlUrl="http://blog.stevensanderson.com/feed/" />
-      <outline type="rss" xmlUrl="https://notes.eatonphil.com/rss.xml" />
-      <outline type="rss" xmlUrl="http://blog.theoldreader.com/rss" />
-      <outline type="rss" xmlUrl="http://rsshub.app/hackernews/best" />
-      <outline type="rss" xmlUrl="http://endler.dev/rss.xml" />
-      <outline type="rss" xmlUrl="https://memo.barrucadu.co.uk//atom.xml" />
-      <outline type="rss" xmlUrl="http://blog.golang.org/feed.atom" />
-      <outline type="rss" xmlUrl="https://medium.com/feed/@td0m" />
+      <outline type="rss" xmlUrl="https://www.tutorialr.com/rss.xml"/>
+      <outline type="rss" xmlUrl="https://comentsys.wordpress.com/feed/"/>
+      <outline type="rss" xmlUrl="https://devblogs.microsoft.com/oldnewthing/feed"/>
+      <outline type="rss" xmlUrl="https://yinwang0.wordpress.com/feed/"/>
+      <outline type="rss" xmlUrl="https://github.blog/feed/"/>
+      <outline type="rss" xmlUrl="https://devblogs.microsoft.com/dotnet/feed/"/>
+      <outline type="rss" xmlUrl="https://twobithistory.org/feed.xml"/>
+      <outline type="rss" xmlUrl="https://www.smbc-comics.com/comic/rss"/>
+      <outline type="rss" xmlUrl="http://blog.stevensanderson.com/feed/"/>
+      <outline type="rss" xmlUrl="https://notes.eatonphil.com/rss.xml"/>
+      <outline type="rss" xmlUrl="http://blog.theoldreader.com/rss"/>
+      <outline type="rss" xmlUrl="http://rsshub.app/hackernews/best"/>
+      <outline type="rss" xmlUrl="http://endler.dev/rss.xml"/>
+      <outline type="rss" xmlUrl="https://memo.barrucadu.co.uk//atom.xml"/>
+      <outline type="rss" xmlUrl="http://blog.golang.org/feed.atom"/>
+      <outline type="rss" xmlUrl="https://medium.com/feed/@td0m"/>
+      <outline type="rss" xmlUrl="https://devblogs.microsoft.com/powershell/feed/"/>
     </outline>
     <outline title="NSFW" text="NSFW">
-      <outline type="rss" xmlUrl="https://sehuatang.org/forum.php?mod=rss&amp;fid=103" />
-      <outline type="rss" xmlUrl="https://www.liuli.se/wp/feed" />
-      <outline type="rss" xmlUrl="http://fuliba2020.net/feed" />
+      <outline type="rss" xmlUrl="https://sehuatang.org/forum.php?mod=rss&amp;fid=103"/>
+      <outline type="rss" xmlUrl="https://www.liuli.se/wp/feed"/>
+      <outline type="rss" xmlUrl="http://fuliba2020.net/feed"/>
     </outline>
   </body>
 </opml>
+
