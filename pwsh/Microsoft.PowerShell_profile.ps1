@@ -10,6 +10,8 @@ Set-Theme ys
 # https://github.com/Moeologist/scoop-completion
 # if you dont need this, please comment it
 Import-Module scoop-completion
+Import-Module posh-cargo
+Import-Module yarn-completion
 
 # zsh like (?) cli completion
 Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
@@ -47,11 +49,25 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     }
 }
 
+Register-ArgumentCompleter -Native -CommandName task -ScriptBlock {
+    param($commandName, $wordToComplete, $cursorPosition)
+    $curReg = "task{.exe}? (.*?)$"
+    $startsWith = $wordToComplete | Select-String $curReg -AllMatches | ForEach-Object { $_.Matches.Groups[1].Value }
+    $reg = "\* ($startsWith.+?):"
+    $listOutput = $(task -l)
+    $listOutput | Select-String $reg -AllMatches | ForEach-Object { $_.Matches.Groups[1].Value + " " }
+}
+
 # several cli completions
 (& deno completions powershell) | Out-String | Invoke-Expression
 (& rustup completions powershell) | Out-String | Invoke-Expression
 (& gh completion -s powershell) | Out-String | Invoke-Expression
 (& pdm completion powershell) | Out-String | Invoke-Expression
+(& volta completions powershell) | Out-String | Invoke-Expression
+
+Get-ChildItem "$PROFILE\..\Completions\" | ForEach-Object {
+    . $_.FullName
+}
 
 # use nvim in wsl
 function dos2nix {
