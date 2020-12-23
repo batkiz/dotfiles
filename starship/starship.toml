@@ -1,0 +1,69 @@
+# starship config
+# ~\.config\starship.toml
+add_newline = false
+scan_timeout = 10
+
+format = """\
+[#](cyan) \
+$username\
+$hostname\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$package\
+$cmake\
+$dotnet\
+$golang\
+$java\
+$nodejs\
+$python\
+$ruby\
+$rust\
+$conda\
+$memory_usage\
+$gcloud\
+$env_var\
+$custom\
+$cmd_duration\
+$line_break\
+$lua\
+$jobs\
+$time\
+$status
+$character"""
+
+[line_break]
+disabled = true
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
+
+[directory]
+truncate_to_repo = false
+
+[hostname]
+ssh_only = false
+format =  "[$hostname](cyan) in "
+
+[username]
+user = "batkiz"
+disabled = false
+# show_always = true
+
+[git_branch]
+symbol = "git:"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+ahead = "↑"	
+behind = "↓"
+
+[time]
+disabled = false
+format = '[\[$time\]]() '

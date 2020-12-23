@@ -2,10 +2,10 @@
     name = batkiz
     email = batkiz@outlook.com
 [difftool "sourcetree"]
-    cmd = '' \"$LOCAL\" \"$REMOTE\"
+	cmd = '' \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-    cmd = "'' "
-    trustExitCode = true
+	cmd = "'' "
+	trustExitCode = true
 [merge]
     tool = kdiff3
 [diff]
@@ -29,18 +29,22 @@
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
 [credential]
-    helper = manager
+	helper = manager-core
 [credential "helperselector"]
-    selected = w
+	selected = <no helper>
 [alias]
     aliases = config --get-regexp alias
     last = log -1 HEAD
     amend = commit --amend --reuse-message=HEAD
-    update = fetch --all --prune
+    ; update = fetch --all --prune
     purge = !bash -c \"git branch -r | awk '{print \\$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \\$1}' | xargs -r git branch -D\"
     graph = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
     uncommit = reset --soft HEAD~1
     unstage = reset HEAD --
     stat = diff --stat
+    lg = log -p --pretty=fuller --abbrev-commit
+    up = pull --rebase
 [help]
     autocorrect = 1
+[hub]
+	protocol = https

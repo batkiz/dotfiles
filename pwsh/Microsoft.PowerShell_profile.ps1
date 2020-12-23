@@ -1,36 +1,13 @@
-# for installing the 2 modules below, please check
-# https://github.com/dahlbyk/posh-git
-# https://github.com/JanDeDobbeleer/oh-my-posh
-Import-Module posh-git
-Import-Module oh-my-posh
+Invoke-Expression (&starship init powershell)
 
-# this theme is in ./PoshThemes
-Set-Theme ys
+# CLI COMPLETION
 
-# https://github.com/Moeologist/scoop-completion
-# if you dont need this, please comment it
+# tab completion
 Import-Module scoop-completion
 Import-Module posh-cargo
 Import-Module yarn-completion
 
-# zsh like (?) cli completion
-Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
-
-# fish-like cli completion
-# need a beta PSReadLine, check
-# https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta1
-# https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta2
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -Colors @{ Prediction = 'DarkGray' }
-Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function ForwardWord
-
-# command history
-Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
-Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd 
-
 # PowerShell parameter completion shim for the dotnet CLI
-# comment it if dont need it
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
     dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
@@ -49,25 +26,51 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     }
 }
 
-Register-ArgumentCompleter -Native -CommandName task -ScriptBlock {
-    param($commandName, $wordToComplete, $cursorPosition)
-    $curReg = "task{.exe}? (.*?)$"
-    $startsWith = $wordToComplete | Select-String $curReg -AllMatches | ForEach-Object { $_.Matches.Groups[1].Value }
-    $reg = "\* ($startsWith.+?):"
-    $listOutput = $(task -l)
-    $listOutput | Select-String $reg -AllMatches | ForEach-Object { $_.Matches.Groups[1].Value + " " }
-}
-
 # several cli completions
 (& deno completions powershell) | Out-String | Invoke-Expression
 (& rustup completions powershell) | Out-String | Invoke-Expression
-(& gh completion -s powershell) | Out-String | Invoke-Expression
+# (& gh completion -s powershell) | Out-String | Invoke-Expression
 (& pdm completion powershell) | Out-String | Invoke-Expression
-(& volta completions powershell) | Out-String | Invoke-Expression
+# (& volta completions powershell) | Out-String | Invoke-Expression
 
 Get-ChildItem "$PROFILE\..\Completions\" | ForEach-Object {
     . $_.FullName
 }
+
+# zsh like (?) cli completion
+Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
+
+# fish-like cli completion
+# need a beta PSReadLine, check
+# https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta1
+# https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta2
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -Colors @{ Prediction = 'DarkGray' }
+Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function ForwardWord
+
+# command history
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+Set-PSReadLineOption -HistorySearchCursorMovesToEnd 
+
+
+
+# Internal functions
+function Add-ItemToPath([String]$part) {
+    $spliter = if ((Test-Path Variable:\IsWindows) -and !$IsWindows) { ':' } else { ';' }
+    $env:PATH = "$part$spliter$env:PATH"
+}
+function Test-Command([String]$command) {
+    return [bool](Get-Command -Name $command `
+            -CommandType Application -ErrorAction SilentlyContinue)
+}
+function Test-PathExist([String]$part) {
+    return ("$env:PATH".ToLower() -like "*$part*".ToLower())
+}
+function Get-NormalizedPath([String]$in) {
+    return (Resolve-Path $in -ErrorAction SilentlyContinue)
+}
+function Get-AllEnv { Get-ChildItem env: }
 
 # use nvim in wsl
 function dos2nix {
@@ -221,6 +224,9 @@ function Set-CliProxy {
     $env:HTTPS_PROXY = $proxy
 }
 
+# set cli proxy by default
+Set-CliProxy
+
 function Clear-CliProxy {
     Remove-Item env:HTTP_PROXY
     Remove-Item env:HTTPS_PROXY
@@ -230,3 +236,4 @@ function Clear-CliProxy {
 Set-Alias tr trash.exe
 # i often forget how to spell explorer.exe 
 Set-Alias e explorer.exe
+
