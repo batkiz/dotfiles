@@ -2,8 +2,8 @@
 <opml version="1.1">
   <head>
     <title>The Old Reader</title>
-    <dateCreated>Mon, 14 Dec 2020 08:53:59 GMT</dateCreated>
-    <dateModified>Mon, 14 Dec 2020 08:53:59 GMT</dateModified>
+    <dateCreated>Fri, 08 Jan 2021 03:09:31 GMT</dateCreated>
+    <dateModified>Fri, 08 Jan 2021 03:09:31 GMT</dateModified>
     <ownerName>batkiz</ownerName>
     <ownerEmail>batkiz@outlook.com</ownerEmail>
   </head>
@@ -16,6 +16,7 @@
       <outline type="rss" xmlUrl="https://geelaw.blog/rss.xml"/>
       <outline type="rss" xmlUrl="https://harttle.land/feed.xml"/>
       <outline type="rss" xmlUrl="https://yihui.org/cn/index.xml"/>
+      <outline type="rss" xmlUrl="https://coolshell.cn/feed"/>
       <outline type="rss" xmlUrl="https://ruinsyi.github.io/atom.xml"/>
       <outline type="rss" xmlUrl="https://www.h404bi.com/feed/atom.xml"/>
       <outline type="rss" xmlUrl="http://feeds.feedburner.com/gythialy"/>
@@ -33,12 +34,15 @@
       <outline type="rss" xmlUrl="https://laike9m.com/blog/rss/"/>
       <outline type="rss" xmlUrl="http://www.kilerd.me/rss.xml"/>
       <outline type="rss" xmlUrl="http://doowzs.com/blog/index.xml"/>
-      <outline type="rss" xmlUrl="http://rsshub.app/blogs/wangyin"/>
+      <outline type="rss" xmlUrl="https://rsshub.batkiz.com/blogs/wangyin"/>
       <outline type="rss" xmlUrl="https://blog.yinfupai.com/feed"/>
       <outline type="rss" xmlUrl="http://iovxw.net/rss.xml"/>
       <outline type="rss" xmlUrl="https://blog.1a23.com/feed/"/>
       <outline type="rss" xmlUrl="https://draveness.me/feed.xml"/>
       <outline type="rss" xmlUrl="https://frostming.com/feed.xml"/>
+      <outline type="rss" xmlUrl="https://coderemixer.com/atom.xml"/>
+      <outline type="rss" xmlUrl="https://forcemz.net/feed.xml"/>
+      <outline type="rss" xmlUrl="https://typeof.net/atom.xml"/>
     </outline>
     <outline title="Sites" text="Sites">
       <outline type="rss" xmlUrl="https://sspai.com/feed"/>
@@ -54,7 +58,7 @@
       <outline type="rss" xmlUrl="https://www.marxists.org/chinese/feed.xml"/>
       <outline type="rss" xmlUrl="https://xz.aliyun.com/feed"/>
       <outline type="rss" xmlUrl="http://feeds.feedburner.com/bookfere"/>
-      <outline type="rss" xmlUrl="http://rsshub.app/lofter/user/beilungg"/>
+      <outline type="rss" xmlUrl="https://rsshub.batkiz.com/lofter/user/beilungg"/>
       <outline type="rss" xmlUrl="https://rsshub.batkiz.com/zhihu/zhuanlan/c_1085975047386050560"/>
       <outline type="rss" xmlUrl="http://freemdict.com/feed/"/>
     </outline>
@@ -70,7 +74,7 @@
       <outline type="rss" xmlUrl="http://blog.stevensanderson.com/feed/"/>
       <outline type="rss" xmlUrl="https://notes.eatonphil.com/rss.xml"/>
       <outline type="rss" xmlUrl="http://blog.theoldreader.com/rss"/>
-      <outline type="rss" xmlUrl="http://rsshub.app/hackernews/best"/>
+      <outline type="rss" xmlUrl="https://rsshub.batkiz.com/hackernews/best"/>
       <outline type="rss" xmlUrl="http://endler.dev/rss.xml"/>
       <outline type="rss" xmlUrl="https://memo.barrucadu.co.uk//atom.xml"/>
       <outline type="rss" xmlUrl="http://blog.golang.org/feed.atom"/>
@@ -84,4 +88,3 @@
     </outline>
   </body>
 </opml>
-

@@ -6,7 +6,7 @@
 // For documentation on these settings, see: https://aka.ms/terminal-documentation
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "defaultProfile": "{3b7b39ea-1d00-43b3-ad83-88ed13e4e81d}",
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialCols": 90,
     "initialRows": 25,
     "tabWidthMode": "titleLength",
@@ -30,16 +30,16 @@
             "acrylicOpacity": 0.85,
             "background": "#282C34",
             "colorScheme": "Campbell",
-            "cursorShape": "filledBox"
+            "cursorShape": "filledBox",
+            "bellStyle": "none"
         },
         "list": [
             {
-                // Make changes here to the powershell.exe profile.
-                "guid": "{3b7b39ea-1d00-43b3-ad83-88ed13e4e81d}",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "name": "PowerShell Core",
-                "icon": "C:\\soft\\Scoop\\apps\\pwsh\\current\\assets\\Powershell_black.ico",
-                // "commandline": "pwsh.exe",
-                "commandline": "C:\\soft\\Scoop\\apps\\pwsh\\current\\pwsh.exe",
+                "fontFace": "Iosevka",
+                "commandline": "pwsh.exe",
+                "source": "Windows.Terminal.PowershellCore",
                 "startingDirectory": "$HOME",
                 "hidden": false,
                 "acrylicOpacity": 0.75,
