@@ -1,13 +1,8 @@
-# starship config
-# ~\.config\starship.toml
 add_newline = false
 scan_timeout = 10
 
 format = """\
 [#](cyan) \
-$username\
-$hostname\
-$shlvl\
 $directory\
 $git_branch\
 $git_commit\
@@ -56,13 +51,15 @@ disabled = false
 
 [git_branch]
 symbol = "git:"
+format = "on [$symbol$branch](green) "
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
-ahead = "↑"	
+ahead = "↑"
 behind = "↓"
+deleted = "×"
 
 [time]
 disabled = false

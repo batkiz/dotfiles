@@ -6,6 +6,7 @@ Invoke-Expression (&starship init powershell)
 Import-Module scoop-completion
 Import-Module posh-cargo
 Import-Module yarn-completion
+Import-Module posh-git
 
 # PowerShell parameter completion shim for the dotnet CLI
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
@@ -132,6 +133,13 @@ function ListDirectory {
 Set-Alias -Name ls -Value ListDirectory
 Set-Alias -Name ll -Value Get-ChildItem
 Set-Alias -Name l -Value Get-ChildItem
+
+function sha256sum {
+    param (
+        $Path
+    )
+    (Get-FileHash -Algorithm SHA256 -Path $Path).hash.ToLower()
+}
 
 # to get the location info of a domain / an IP
 function nali {

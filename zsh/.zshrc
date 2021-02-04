@@ -1,11 +1,9 @@
 # theme
 ZSH_THEME="ys"
 
-# wsl 2
-# export hostip=$(cat /etc/resolv.conf | grep -oP '(?<=nameserver\ ).*')
-# wsl 1 - default
-export hostip="127.0.0.1"
-alias socks="http_proxy=http://${hostip}:43333 https_proxy=http://${hostip}:43333 " 
+if [ -e $HOME/.proxyrc ]; then
+  . $HOME/.proxyrc
+fi
 
 export LC_CTYPE=zh_CN.UTF-8
 export LANG="zh_CN.UTF-8"
