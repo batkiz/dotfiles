@@ -1,21 +1,21 @@
 # wsl 1
 hostip="127.0.0.1"
 # wsl 2
-# export hostip=$(cat /etc/resolv.conf | grep -oP '(?<=nameserver\ ).*')
+# hostip=$(cat /etc/resolv.conf | grep -oP '(?<=nameserver\ ).*')
 
-port = 43333
+port=43333
 
 http_proxy=http://$hostip:$port
 https_proxy=http://$hostip:$port
 
-proxy () {
+proxy() {
   export http_proxy=$http_proxy
   export https_proxy=$https_proxy
 }
 
-noproxy () {
+noproxy() {
   unset http_proxy
   unset https_proxy
 }
 
-alias socks="http_proxy=http://$hostip:$port https_proxy=http://$hostip:$port " 
+alias socks="http_proxy=http://$hostip:$port https_proxy=http://$hostip:$port "
