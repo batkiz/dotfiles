@@ -33,6 +33,7 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 # (& gh completion -s powershell) | Out-String | Invoke-Expression
 (& pdm completion powershell) | Out-String | Invoke-Expression
 # (& volta completions powershell) | Out-String | Invoke-Expression
+(& golangci-lint completion powershell) | Out-String | Invoke-Expression
 
 Get-ChildItem "$PROFILE\..\Completions\" | ForEach-Object {
     . $_.FullName
@@ -43,10 +44,9 @@ Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 
 # fish-like cli completion
 # need a beta PSReadLine, check
-# https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta1
-# https://github.com/PowerShell/PSReadLine/releases/tag/v2.1.0-beta2
+# https://github.com/PowerShell/PSReadLine/releases
 Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -Colors @{ Prediction = 'DarkGray' }
+Set-PSReadLineOption -Colors @{ InlinePrediction = 'DarkGray' }
 Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function ForwardWord
 
 # command history

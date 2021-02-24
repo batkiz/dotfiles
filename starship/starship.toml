@@ -37,6 +37,9 @@ disabled = true
 success_symbol = "[>](bold green)"
 error_symbol = "[>](bold red)"
 
+[cmake]
+symbol = "▲ "
+
 [directory]
 truncate_to_repo = false
 
