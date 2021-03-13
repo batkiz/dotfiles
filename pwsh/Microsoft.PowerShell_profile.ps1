@@ -1,43 +1,72 @@
 Invoke-Expression (&starship init powershell)
 
+function Test-Command([String]$command) {
+    return [bool](Get-Command -Name $command `
+            -CommandType Application -ErrorAction SilentlyContinue)
+}
+
 # CLI COMPLETION
 
 # tab completion
-Import-Module scoop-completion
-Import-Module posh-cargo
-Import-Module yarn-completion
-Import-Module posh-git
+if (Test-Command -command "scoop") {
+    Import-Module scoop-completion
+}
+if (Test-Command -command "cargo") {
+    Import-Module posh-cargo
+}
+if (Test-Command -command "yarn") {
+    Import-Module yarn-completion
+}
+if (Test-Command -command "git") {
+    Import-Module posh-git
+}
 
 # PowerShell parameter completion shim for the dotnet CLI
-Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
-    param($commandName, $wordToComplete, $cursorPosition)
-    dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
-        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+if (Test-Command -command "dotnet") {
+    Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+        param($commandName, $wordToComplete, $cursorPosition)
+        dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
     }
 }
 
 # winget tab completion
-Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
-    param($wordToComplete, $commandAst, $cursorPosition)
-    [Console]::InputEncoding = [Console]::OutputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
-    $Local:word = $wordToComplete.Replace('"', '""')
-    $Local:ast = $commandAst.ToString().Replace('"', '""')
-    winget complete --word="$Local:word" --commandline "$Local:ast" --position $cursorPosition | ForEach-Object {
-        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+if (Test-Command -command "winget") {
+    Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
+        param($wordToComplete, $commandAst, $cursorPosition)
+        [Console]::InputEncoding = [Console]::OutputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
+        $Local:word = $wordToComplete.Replace('"', '""')
+        $Local:ast = $commandAst.ToString().Replace('"', '""')
+        winget complete --word="$Local:word" --commandline "$Local:ast" --position $cursorPosition | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
     }
 }
 
 # several cli completions
-(& deno completions powershell) | Out-String | Invoke-Expression
-(& rustup completions powershell) | Out-String | Invoke-Expression
-# (& gh completion -s powershell) | Out-String | Invoke-Expression
-(& pdm completion powershell) | Out-String | Invoke-Expression
-# (& volta completions powershell) | Out-String | Invoke-Expression
-(& golangci-lint completion powershell) | Out-String | Invoke-Expression
-
-Get-ChildItem "$PROFILE\..\Completions\" | ForEach-Object {
-    . $_.FullName
+if (Test-Command -command "deno") {
+    (& deno completions powershell) | Out-String | Invoke-Expression
 }
+if (Test-Command -command "rustup") {
+    (& rustup completions powershell) | Out-String | Invoke-Expression
+}
+if (Test-Command -command "pdm") {
+    (& pdm completion powershell) | Out-String | Invoke-Expression
+}
+if (Test-Command -command "golangci-lint") {
+    (& golangci-lint completion powershell) | Out-String | Invoke-Expression
+}
+if (Test-Command -command "gh") {
+    . $PROFILE\..\Completions\gh.ps1
+}
+if (Test-Command -command "task") {
+    . $PROFILE\..\Completions\task.ps1
+}
+if (Test-Command -command "volta") {
+    . $PROFILE\..\Completions\volta.ps1
+}
+
 
 # zsh like (?) cli completion
 Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
@@ -60,10 +89,6 @@ Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 function Add-ItemToPath([String]$part) {
     $spliter = if ((Test-Path Variable:\IsWindows) -and !$IsWindows) { ':' } else { ';' }
     $env:PATH = "$part$spliter$env:PATH"
-}
-function Test-Command([String]$command) {
-    return [bool](Get-Command -Name $command `
-            -CommandType Application -ErrorAction SilentlyContinue)
 }
 function Test-PathExist([String]$part) {
     return ("$env:PATH".ToLower() -like "*$part*".ToLower())
