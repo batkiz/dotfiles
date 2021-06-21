@@ -52,7 +52,9 @@ if (Test-Command -command "rustup") {
     (& rustup completions powershell) | Out-String | Invoke-Expression
 }
 if (Test-Command -command "pdm") {
-    (& pdm completion powershell) | Out-String | Invoke-Expression
+    # (& pdm completion powershell) | Out-String | Invoke-Expression
+    . $PROFILE\..\Completions\pdm.ps1
+    pdm --pep582
 }
 if (Test-Command -command "golangci-lint") {
     (& golangci-lint completion powershell) | Out-String | Invoke-Expression
@@ -270,3 +272,9 @@ Set-Alias tr trash.exe
 # i often forget how to spell explorer.exe 
 Set-Alias e explorer.exe
 
+function Set-DotnetEnv {
+    $curVer = ((& dotnet --list-sdks) | Out-String).Split(' ')[0]
+    $env:MSBuildSdksPath = 'C:\Program Files\dotnet\sdk\' + $curVer + '\Sdks\'
+}
+
+Set-DotnetEnv
