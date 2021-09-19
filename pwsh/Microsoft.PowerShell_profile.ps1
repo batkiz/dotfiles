@@ -50,6 +50,8 @@ if (Test-Command -command "deno") {
 }
 if (Test-Command -command "rustup") {
     (& rustup completions powershell) | Out-String | Invoke-Expression
+    $env:RUSTUP_DIST_SERVER="https://rsproxy.cn"
+    $env:RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 }
 if (Test-Command -command "pdm") {
     # (& pdm completion powershell) | Out-String | Invoke-Expression
@@ -84,7 +86,6 @@ Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function ForwardWord
 Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd 
-
 
 
 # Internal functions
@@ -273,8 +274,8 @@ Set-Alias tr trash.exe
 Set-Alias e explorer.exe
 
 function Set-DotnetEnv {
-    $curVer = ((& dotnet --list-sdks) | Out-String).Split(' ')[0]
-    $env:MSBuildSdksPath = 'C:\Program Files\dotnet\sdk\' + $curVer + '\Sdks\'
+    $curVer = (& dotnet --list-sdks) | Out-String
+    $env:MSBuildSdksPath='C:\Program Files\dotnet\sdk\' + $curVer.Split(' ')[0] + '\Sdks\'
 }
 
 Set-DotnetEnv

@@ -1,6 +1,6 @@
 [user]
-    name = batkiz
-    email = batkiz@outlook.com
+	name = batkiz
+	email = batkiz@outlook.com
 [difftool "sourcetree"]
 	cmd = '' \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
@@ -10,12 +10,10 @@
     tool = kdiff3
 [diff]
     guitool = kdiff3
-[http]
-    proxy = http://127.0.0.1:43333
 [https]
     proxy = http://127.0.0.1:43333
 [core]
-    autocrlf = true
+	autocrlf = true
     askpass =
 [pull]
     rebase = false
@@ -31,12 +29,12 @@
 [credential]
 	helper = manager-core
 [credential "helperselector"]
-	selected = <no helper>
+	selected = manager-core
 [alias]
     aliases = config --get-regexp alias
     last = log -1 HEAD
     amend = commit --amend --reuse-message=HEAD
-    ; update = fetch --all --prune
+    ;update = fetch --all --prune
     purge = !bash -c \"git branch -r | awk '{print \\$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \\$1}' | xargs -r git branch -D\"
     graph = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
     uncommit = reset --soft HEAD~1
@@ -48,3 +46,5 @@
     autocorrect = 1
 [hub]
 	protocol = https
+[init]
+	defaultBranch = main

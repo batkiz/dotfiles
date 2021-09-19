@@ -1,5 +1,6 @@
 add_newline = false
 scan_timeout = 10
+
 format = """\
 [#](cyan) \
 $directory\
@@ -35,13 +36,13 @@ use_logical_path = true
 
 [hostname]
 ssh_only = false
-format = "[$hostname](cyan) in "
+format =  "[$hostname](cyan) in "
 
 [username]
 user = "batkiz"
 disabled = false
-
 # show_always = true
+
 [git_branch]
 symbol = "git:"
 format = "on [$symbol$branch](green) "
